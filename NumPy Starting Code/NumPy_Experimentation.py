@@ -1,47 +1,44 @@
 import numpy as np
 from numpy import pi
 
-#Arrays A-C utilize the np.array() method to be initialized
-#Array D utilizes the np.arange() method to be initialized to all values from [3, 21) while incrementing by a value of 2 each time
-#Array E and F utilizes the np.linspace() method to be initialized
-#Array G is initialized by generating the sine values of each element in Array F
+#Arrays a-c utilize the np.array() method to be initialized
+#Array d utilizes the np.arange() method to be initialized to all values from [3, 21) while incrementing by a value of 2 each time
+#Array e and f utilizes the np.linspace() method to be initialized
+    #Note that np.linspace(a, b, c) returns an array of values that lie between the start bound a and the end bound b. 
+    #These values increment by a set amount c
+#Array g is initialized by generating the sine values of each element in Array f
 
 
 print("Array A:")
 a = np.array([2, 3, 4])
+print(a.dtype)
 print(a)
 
+
 print("\nArray B:")
-print(a.dtype)
 
 b = np.array([[4, 5], [9, 8]], dtype=complex)
+print(b.dtype)
 print(b)
 
 print("\nArray C:")
 c = np.zeros((4, 5))
+print(c.dtype)
 print(c)
 
 print("\nArray D:")
 d = np.arange(3, 21, 2)
+print(d.dtype)
 print(d)
 
 print("\nArray E:")
 e = np.linspace(0, 1, 21)
+print(e.dtype)
 print(e)
 
 print("\nArray F:")
 endBound = 2*pi
 f = np.linspace(0, endBound, 13)
 g = np.sin(f)
+print(g.dtype)
 print(g)
-
-f = open("test_text_file.txt", "w+")
-
-for i in range (10):
-    f.write("This is line" + str(i))
-
-
-#r = open(f, "r")
-
-contents = r.read()
-print(contents)
