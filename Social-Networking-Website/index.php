@@ -1,15 +1,8 @@
-<?php  
-    require 'config/config.php';
+<?php
+    include("includes/header.php");
 ?>
 
 
-<html>
-
-<head>
-    <title>Homepage</title>
-</head>
-
-<body>
     Hello Adit!
 </body>
 

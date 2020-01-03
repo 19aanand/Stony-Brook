@@ -1,0 +1,114 @@
+@font-face
+{
+    font-family: 'Bellota-LightItalic';
+    src: url('../fonts/Bellota-LightItalic.otf');
+}
+
+@font-face
+{
+    font-family: 'Bellota-BoldItalic';
+    src: url('../fonts/Bellota-BoldItalic.otf');
+}
+
+form
+{
+    text-align: center;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+html, body
+{
+    height: 100%;
+    min-height: 100%;
+}
+
+.wrapper
+{
+    background-image: url("../images/backgrounds/desktop_view.jpg");
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    min-width: 950px; 
+}
+
+.login_box
+{
+    font-family: 'Bellota-LightItalic', sans-serif;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    top: 7%;
+    width: 35%;
+    background-color: #ffffff;
+    border: 1px solid #EDEDED;
+    border-radius: 8px;
+    padding: 5px;
+    opacity: 0.85;
+}
+
+.login_header
+{
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    width: 100%;
+    height: 90px;
+    background-color: #00ffbf;
+    color: #ff00bf;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.login_header h1
+{
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #ff00bf;
+    text-shadow: #ff4000 1px 1px 0px;
+    font-size: 200%;
+}
+
+
+input[type = "submit"]
+{
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    background-color: #00ffbf;
+    border: 1px solid #00ffbf;
+    border-radius: 4px;
+    margin: 5px 0px 5px 0px;
+    padding: 0px 10px 0px 10px; /*Order of parameters is top, right, bottom, left*/
+    color: #ff00bf;
+    text-shadow: #ff4000 0.25px 0.25px 0px;
+    font-size: 100%;
+}
+
+input[type = "text"], input[type = "email"], input[type = "password"]
+{
+    border: 1px solid #e5e5e5;
+    margin-top: 5px;
+    width: 75%;
+    height: 35px;
+    margin-bottom: 10px;
+    padding-left: 5px; /*Provides padding between text type into input box and the input box's left border*/
+}
+
+input[type = "text"]:hover, input[type = "email"]:hover, input[type = "password"]:hover
+{
+    border-color: #00ffbf;
+}
+
+a
+{
+    text-decoration: none;
+    color: #ff00bf;
+}
+
+#second
+{
+    display: none;
+}
