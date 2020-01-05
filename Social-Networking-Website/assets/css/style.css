@@ -13,6 +13,7 @@
 body
 {
     line-height: 17px;
+    background-color: #E6EAE8;
 }
 
 .top_bar
@@ -24,6 +25,8 @@ body
     border-bottom: 0.25em solid #2ecc71;
     margin: 0px 0px 10px 0px;
     display: inline-flex;
+    position: fixed;
+    z-index: 10;
 }
 
 .logo a
@@ -35,10 +38,131 @@ body
     top: 10px;
     text-shadow: #ff00bf 0.5px 0.5px 0px;
     color: #ff00bf;
-
 }
 
 a:hover
 {
     text-decoration: none;
+}
+
+nav
+{
+    float: right;
+    right: 1px;
+    position: absolute;
+    margin: 10px;
+}
+
+nav a
+{
+    position: relative;
+    color: #000000;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 0px 5px 0px 5px;
+}
+
+nav a:hover
+{
+    border-bottom: 7px solid #9b59b6;
+    color: #000000;
+}
+
+.wrapper
+{
+    margin: 0px auto;
+    top: 50px;
+    position: relative;
+    padding: 0px 10px;
+    width: 75%;
+    min-width: 950px;
+}
+
+.column
+{
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px #d3d3d3;
+    z-index: -1;
+}
+
+.userDetails
+{
+    float: left;
+    margin-bottom: 20px;
+    width: 160px;
+}
+
+.userDetails a
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.userDetailsLeftRight
+{
+    display: inline-block;
+    position: relative;
+}
+
+.userDetails img
+{
+    height: 125 px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.mainColumn
+{
+    float: right;
+    width: 70%;
+    z-index: -1;
+    min-height: 60px;
+}
+
+.postForm
+{
+    width: 100%;
+}
+
+.postForm textarea
+{
+    width: 80%;
+    height: 60px;
+    border-radius: 5px;
+    margin-right: 5px;
+    border: 1px solid #d3d3d3;
+    font-size: 12px;
+    padding: 5px;
+}
+
+textarea:focus
+{
+    outline: 0;
+}
+
+.postForm input[type = "submit"]
+{
+    width: 12.5%;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    background-color: #00ffbf;
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    text-shadow: darkviolet 0.5px 0.5px 0px;
+    color: darkviolet;
+    font-size: 110%;
+    position: absolute;
+    outline: 0;
+    margin: 0;
+}
+
+.postForm input[type = "submit"]:active
+{
+    padding: 5px 4px 4px 5px;
+    background-color: #ff00bf;
 }
