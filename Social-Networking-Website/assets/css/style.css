@@ -166,3 +166,22 @@ textarea:focus
     padding: 5px 4px 4px 5px;
     background-color: #ff00bf;
 }
+
+.statusPost
+{
+    width: 96%;
+    font-size: 15px;
+    padding: 0px 5px;
+    min-height: 75px;
+}
+
+.postProfilePic
+{
+    float: left;
+    margin-right: 7px;
+}
+
+.postProfilePic img
+{
+    border-radius: 5px;
+} 

@@ -57,22 +57,26 @@
 
             <!-- Messages icon -->
             <a href = "#">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
             </a>
 
             <!-- Notifications icon -->
             <a href = "#">
-                <i class="fa fa-bell" aria-hidden="true"></i>
+                <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
             </a>    
 
             <!-- Add friends icon -->
             <a href = "#">
-                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>
             </a>
 
             <!-- Settings icon -->
             <a href = "#">
-                <i class="fa fa-cog" aria-hidden="true"></i>
+                <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
+            </a>
+            
+            <a href="includes/handlers/logout.php">
+                <i class = "fa fa-sign-out fa-lg" aria-hidden = "true"></i>
             </a>
 
 

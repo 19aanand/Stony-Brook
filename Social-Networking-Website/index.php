@@ -1,5 +1,14 @@
 <?php
     include("includes/header.php");
+    include("includes/classes/User.php");
+    include("includes/classes/Post.php");
+
+    if(isset($_POST['post']))
+    {
+        $post = new Post($con, $userLoggedIn);
+        $post->submitPost($_POST['postText'], 'none');
+        header("Location: index.php");
+    }
 ?>
 
         <!-- Separating the class names with a space when assigning a class to a div tag allows for multiple classes to be assigned -->
@@ -49,7 +58,82 @@
                 </input>
 
             </form>
+
+            <?php
+                //$post = new Post($con, $userLoggedIn);
+                //$post->loadPostsFriends();
+
+            ?>
+
+            <div class = "postsArea"></div>
+
+            <img id = "loading" src = "assets/images/icons/loading.gif">
+
         </div>
+
+        <script>
+            var userLoggedIn = 
+            '<?php
+                echo $userLoggedIn;
+            ?>';
+
+
+            $(document).ready(function()
+            {
+                $('#loading').show();
+
+                //Original ajax script for loading first posts
+                $.ajax
+                ({
+                    url: "includes/handlers/AjaxLoadPosts.php",
+                    type: "POST",
+                    data: "page=1&userLoggedIn=" + userLoggedIn,
+                    cache: false,
+
+                    success: function(data)
+                    {
+                        $('#loading').hide();
+                        $('.postsArea').html(data);
+                    }
+                });
+
+                $(window).scroll(function()
+                {
+                    var height = $('.postsArea').height(); //Div containing posts
+                    var scrollTop = $(this).scrollTop();
+                    var page = $('.postsArea').find('.nextPage').val();
+                    var noMorePosts = $('.postsArea').find('.noMorePosts').val();
+
+                    if((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false')
+                    {
+                        $('#loading').show();
+                        
+
+                        var ajaxRequest = $.ajax
+                        ({
+                            url: "includes/handlers/AjaxLoadPosts.php",
+                            type: "POST",
+                            data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
+                            cache: false,
+
+                            success: function(response)
+                            {
+                                $('.postsArea').find('.nextPage').remove(); //Removes current .nextPage
+                                $('.postsArea').find('.noMorePosts').remove();
+
+
+                                $('#loading').hide();
+                                $('.postsArea').append(response);
+                            }
+                        });
+                    } //End if
+
+                    return false;
+
+                }); //End (window).scroll(function())
+            });
+
+        </script>
 
     </div>
 </body>
