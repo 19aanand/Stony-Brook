@@ -65,22 +65,21 @@
 
             ?>
 
-            <div class = "postsArea"></div>
+            <div id = "postsArea"></div>
 
             <img id = "loading" src = "assets/images/icons/loading.gif">
 
         </div>
 
         <script>
-            var userLoggedIn = 
-            '<?php
-                echo $userLoggedIn;
-            ?>';
+            var userLoggedIn = '<?php echo $userLoggedIn;?>';
 
 
             $(document).ready(function()
             {
                 $('#loading').show();
+                //var page = $('.posts_area').find('.nextPage').val() || 1; 
+                //If .nextPage couldn't be found, it must not be on the page yet (it must be the first time loading posts), so use the value '1'
 
                 //Original ajax script for loading first posts
                 $.ajax
@@ -88,21 +87,22 @@
                     url: "includes/handlers/AjaxLoadPosts.php",
                     type: "POST",
                     data: "page=1&userLoggedIn=" + userLoggedIn,
+                    //data: "page=" + page + "&userLoggedIn" + userLoggedIn,
                     cache: false,
 
                     success: function(data)
                     {
                         $('#loading').hide();
-                        $('.postsArea').html(data);
+                        $('#postsArea').html(data);
                     }
                 });
 
                 $(window).scroll(function()
                 {
-                    var height = $('.postsArea').height(); //Div containing posts
+                    var height = $('#postsArea').height(); //Div containing posts
                     var scrollTop = $(this).scrollTop();
-                    var page = $('.postsArea').find('.nextPage').val();
-                    var noMorePosts = $('.postsArea').find('.noMorePosts').val();
+                    var page = $('#postsArea').find('.nextPage').val();
+                    var noMorePosts = $('#postsArea').find('.noMorePosts').val();
 
                     if((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false')
                     {
@@ -118,12 +118,12 @@
 
                             success: function(response)
                             {
-                                $('.postsArea').find('.nextPage').remove(); //Removes current .nextPage
-                                $('.postsArea').find('.noMorePosts').remove();
+                                $('#postsArea').find('.nextPage').remove(); //Removes current .nextPage
+                                $('#postsArea').find('.noMorePosts').remove();
 
 
                                 $('#loading').hide();
-                                $('.postsArea').append(response);
+                                $('#postsArea').append(response);
                             }
                         });
                     } //End if

@@ -16,6 +16,12 @@ body
     background-color: #E6EAE8;
 }
 
+a
+{
+    color: #20AAE5;
+    text-decoration: none;
+}
+
 .top_bar
 {
     width: 100%;
@@ -173,6 +179,7 @@ textarea:focus
     font-size: 15px;
     padding: 0px 5px;
     min-height: 75px;
+    cursor: pointer;
 }
 
 .postProfilePic
@@ -185,3 +192,55 @@ textarea:focus
 {
     border-radius: 5px;
 } 
+
+#comment_iframe
+{
+    max-height: 250px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.commentSection
+{
+    padding: 0px 5px 5px 5px;
+}
+
+.commentSection img
+{
+    margin: 0px 3px 3px 3px;
+    border-radius: 3px;
+}
+
+#commentForm textarea
+{
+    width: 85%;
+    height: 35px;
+    border-radius: 5px;
+    border-color: #d3d3d3;
+    color: #616060;
+    font-size: 14px;
+    margin: 3px 3px 3px 5px;
+}
+
+#commentForm input[type = "submit"]
+{
+    border: none;
+    background-color: #00ffbf;
+    color: #ff00bf;
+    width: 13%;
+    height: 35px;
+    margin-top: 3px;
+    position: absolute;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    text-shadow: #ff00bf 0.5px 0.5px 0px;
+}
+
+.newsfeedPostOptions
+{
+    padding: 0px;
+    text-decoration: none;
+    color: #ff00bf;
+    border: none;
+}
