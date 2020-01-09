@@ -284,6 +284,8 @@
 
                             <div class = 'newsfeedPostOptions'>
                                 Comments($commentsCheckNum)&nbsp;&nbsp;&nbsp;
+
+                                <iframe src = 'like.php?post_id=$id' scrolling = 'no'></iframe>
                             </div>
 
                         </div>

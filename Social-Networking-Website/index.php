@@ -1,7 +1,5 @@
 <?php
     include("includes/header.php");
-    include("includes/classes/User.php");
-    include("includes/classes/Post.php");
 
     if(isset($_POST['post']))
     {
@@ -48,6 +46,7 @@
 
         <div class = "mainColumn column">
 
+        
             <form class = "postForm" action = "index.php" method = "POST">
 
                 <textarea name = "postText" id = "postText" placeholder = "What's on your mind?">

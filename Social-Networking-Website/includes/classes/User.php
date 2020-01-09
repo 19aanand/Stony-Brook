@@ -71,5 +71,70 @@
                 return false;
             }
         }
+
+        public function didReceiveRequest($userFrom)
+        {
+            $userTo = $this->user['username'];
+            $checkRequestQuery = mysqli_query($this->con, "SELECT * FROM friend_requests WHERE user_to = '$userTo' AND 
+                user_from = '$userFrom'");
+
+            if(mysqli_num_rows($checkRequestQuery) > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        public function didSendRequest($userTo)
+        {
+            $userFrom = $this->user['username'];
+            $checkRequestQuery = mysqli_query($this->con, "SELECT * FROM friend_requests WHERE user_to = '$userTo' AND 
+                user_from = '$userFrom'");
+
+            if(mysqli_num_rows($checkRequestQuery) > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        public function removeFriend($userToRemove)
+        {
+            $loggedInUser = $this->user['username'];
+
+            $query = mysqli_query($this->con, "SELECT friend_array FROM users WHERE username = '$userToRemove'");
+            $row = mysqli_fetch_array($query);
+
+            $friendArrayUsername = $row['friend_array'];
+
+            $newFriendArray = str_replace($userToRemove . ",", "", $this->user['friend_array']);
+            $removeFriend = mysqli_query($this->con, "UPDATE users SET friend_array = '$newFriendArray' WHERE 
+                username = '$loggedInUser'");
+
+            $newFriendArray = str_replace($this->user['username'] . ",", "", $friendArrayUsername);
+            $removeFriend = mysqli_query($this->con, "UPDATE users SET friend_array = '$newFriendArray' WHERE
+                username = '$userToRemove'");
+
+
+        }
+
+        public function sendRequest($userTo)
+        {
+            $userFrom = $this->user['username'];
+            $query = mysqli_query($this->con, "INSERT INTO friend_requests VALUES('', '$userTo', '$userFrom')");
+        }
+
+        public function getFriendArray()
+        {
+            return $this->user['friend_array'];
+        }
     }
 ?>

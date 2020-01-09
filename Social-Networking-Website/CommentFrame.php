@@ -30,7 +30,7 @@
             {
                 font-size: 12px;
                 font-family: Arial, Helvetica, Sans-serif;
-
+                background-color: #ffffff;
             }
         </style>
 
