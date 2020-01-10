@@ -98,7 +98,7 @@ nav a:hover
 {
     float: left;
     margin-bottom: 20px;
-    width: 160px;
+    width: 180px;
 }
 
 .userDetails a
@@ -364,4 +364,60 @@ textarea:focus
     margin: 7px 0px 0px 10px;
     border: none;
     color: #ffffff;
+}
+
+#accept_button
+{
+    width: 20%;
+    height: 28px;
+    border-radius: 5px;
+    margin: 5px;
+    border: none;
+    background-color: #2ecc71;
+    color: #ffffff;
+}
+
+#accept_button:hover
+{
+    color: #000000;
+}
+
+#ignore_button
+{
+    width: 20%;
+    height: 28px;
+    border-radius: 5px;
+    margin: 5px;
+    border: none;
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+#ignore_button:hover
+{
+    color: #000000;
+}
+
+.delete_button
+{
+    height: 22px;
+    width: 22px;
+    float: right;
+    border-radius: 3px;
+    padding: 0px;
+    right: -15px;
+    position: relative
+}
+
+.profileMainColumn
+{
+    min-width: 675px;
+    float: left;
+    width: 70%;
+    z-index: -1;
+}
+
+.profileInfoBottom
+{
+    margin: 10px 0px 0px 7px;
 }

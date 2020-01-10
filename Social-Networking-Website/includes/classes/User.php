@@ -136,5 +136,40 @@
         {
             return $this->user['friend_array'];
         }
+
+        public function getMutualFriends($userToCheck)
+        {
+            $mutualFriends = 0;
+            $userArray = $this->user['friend_array'];
+            $userArrayExplode = explode(",", $userArray);
+
+            $query = mysqli_query($this->con, "SELECT friend_array FROM users WHERE username = '$userToCheck'");
+            $row = mysqli_fetch_array($query);
+            $userToCheckArray = $row['friend_array'];
+            $userToCheckArrayExplode = explode(",", $userToCheckArray);
+
+            foreach($userArrayExplode as $element)
+            {
+                foreach($userToCheckArrayExplode as $element2)
+                {
+                    if($element == $element2 && $element != "")
+                    {
+                        $mutualFriends++;
+                    }
+                }
+            }
+
+            /*
+            foreach($userArrayExplode as $element)
+            {
+                if(in_array($element, $userToCheckArrayExplode) && $element != "")
+                {
+                    $mutualFriends++;
+                }
+            }
+            */
+
+            return $mutualFriends;
+        }
     }
 ?>

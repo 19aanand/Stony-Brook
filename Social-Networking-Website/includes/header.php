@@ -25,11 +25,16 @@
     <!-- JavaScript -->
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src = "assets/js/bootstrap.js"></script>
+    <script src = "assets/js/bootbox.min.js"></script>
+    <script src = "assets/js/AANetworking.js"></script>
+    <script src = "assets/js/jquery.jcrop.js"></script>
+    <script src = "assets/js/jcrop_bits.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel = "stylesheet" type = "text/css" href = "assets/css/bootstrap.css">
     <link rel = "stylesheet" type = "text/css" href = "assets/css/style.css">
+    <link rel="stylesheet" type = "text/css" href = "assets/css/jquery.jcrop.css">
     
 
 </head>
@@ -68,8 +73,8 @@
             </a>    
 
             <!-- Add friends icon -->
-            <a href = "#">
-                <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>
+            <a href = "Requests.php">
+                <i class="fa fa-users fa-lg" aria-hidden="true"></i>
             </a>
 
             <!-- Settings icon -->
