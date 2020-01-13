@@ -2,6 +2,7 @@
     require 'config/config.php';
     include("includes/classes/User.php");
     include("includes/classes/Post.php");
+    include("includes/classes/Message.php");
 
     if(isset($_SESSION['username']))
     {
@@ -63,7 +64,7 @@
             </a>    
 
             <!-- Messages icon -->
-            <a href = "#">
+            <a href = "javascript:void(0);" onclick = "getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
                 <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
             </a>
 
@@ -90,6 +91,9 @@
 
         </nav>
 
+        <div class = "dropdownDataWindow" style = "height: 0px; border: none;">
+            <input type = "hidden" id = "dropdownDataType" value = "">
+        </div>
     </div>
 
     <div class = "wrapper">

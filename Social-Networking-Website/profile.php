@@ -1,5 +1,6 @@
 <?php
     include("includes/header.php");
+    $messageObject = new Message($con, $userLoggedIn);
 
     if(isset($_GET['profile_username'])) //Gets username in url
     {
@@ -25,6 +26,38 @@
     {
         header("Location: Requests.php");
     }
+
+    if(isset($_POST['postMessage']))
+    {
+        if(isset($_POST['messageBody']))
+        {
+            $body = mysqli_real_escape_string($con, $_POST['messageBody']);
+            $date = date("Y-m-d H:i:s");
+            $messageObject->sendMessage($username, $body, $date);
+            header("Location: profile.php?profile_username=$username&tab=m");
+        }
+
+        $link = '#profileTabs a[href = "#messagesDiv"]';
+
+        /*echo "<script>
+                $(function()
+                {
+                    $('" . $link . "').tab('show');
+                });
+            </script>";*/
+    }
+
+    if(isset($_GET['tab']) && $_GET['tab'] == "m") 
+    { 
+	    $link = '#profileTabs a[href="#messagesDiv"]';
+	 
+	    echo "<script>
+                $(function() 
+                {
+	                $('" . $link ."').tab('show');
+	            });
+	          </script>";
+	}
 ?>
         <style type = "text/css">
             .wrapper
@@ -115,9 +148,59 @@
         <br>
         <div class = "profileMainColumn column">
 
-            <div id = "postsArea"></div>
+            <ul class="nav nav-tabs" role = "tablist" id = "profileTabs">
+                
+                <li role = "nav-item">
+                    <a class = "nav-link active" href = "#newsfeedDiv" aria-controls = "newsfeedDiv" role = "tab" data-toggle = "tab">
+                        Home
+                    </a>
+                </li>
 
-            <img id = "loading" src = "assets/images/icons/loading.gif">
+                <li role = "nav-item">
+                    <a class = "nav-link" href="#messagesDiv" aria-controls = "messagesDiv" role = "tab" data-toggle = "tab">
+                        Messages
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class = "tab-content">
+
+                <div role = "tabpanel" class = "tab-pane fade show active" id = "newsfeedDiv">
+                    <div id = "postsArea"></div>
+                    <img id = "loading" src = "assets/images/icons/loading.gif">
+                </div>
+
+                <div role = "tabpanel" class = "tab-pane fade" id = "messagesDiv">
+                    <?php
+
+                        echo "<h4>You and <a href = '" . $username . "'>" . $profileUserObject->getFirstAndLastName() . "</a></h4><hr><br>";            
+                        
+                        echo "<div class = 'loadedMessages' id = 'scrollMessages'>";
+                            echo $messageObject->getMessages($username);
+                        echo "</div>";
+                    ?>    
+
+                    <div class = "messagePost" id = "mainColumnMessages">
+
+                        <form action = "" method = "POST">
+                                <br><textarea name = "messageBody" id = 'messageTextarea' placeholder = 'Write your message.'></textarea>
+                                <input type = "submit" name = "postMessage" class = "info" id = "messageSubmit" value = "Send">
+                        </form>
+                    </div>
+
+                    <script>
+                        $('a[data-toggle="tab"]').on('shown.bs.tab', function()
+                        {
+                            var div = document.getElementById("scrollMessages");
+                            div.scrollTop = div.scrollHeight;
+                        });                        
+                    </script>
+                    
+                </div>
+
+            </div>
+
         </div>
 
         <!-- Modal -->

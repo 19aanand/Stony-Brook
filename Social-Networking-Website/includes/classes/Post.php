@@ -171,7 +171,7 @@
 
                         if($interval->y >= 1)   //If interval is greater than or equal to a year
                         {
-                            if($interval == 1)
+                            if($interval->y == 1)
                             {
                                 $timeMessage = $interval->y . " year ago"; //1 year ago
                             }
@@ -387,9 +387,6 @@
                     $userLoggedObject = new User($this->con, /*$userLoggedIn$*/$userLoggedIn);
                     if($userLoggedObject->isFriend($addedBy))
                     {
-
-
-
                         if($numIterations++ < $start)
                         {
                             continue;
@@ -406,7 +403,7 @@
                             $count++;
                         }
 
-                        if($userLoggedIn = "$addedBy")
+                        if($userLoggedIn == "$addedBy")
                         {
                             $deleteButton = "<button class = 'delete_button btn-danger' id = 'post$id'>X</button>";
                         }

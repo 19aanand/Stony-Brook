@@ -98,7 +98,7 @@ nav a:hover
 {
     float: left;
     margin-bottom: 20px;
-    width: 180px;
+    width: 280px;
 }
 
 .userDetails a
@@ -127,7 +127,7 @@ nav a:hover
     float: right;
     width: 70%;
     z-index: -1;
-    min-height: 60px;
+    min-height: 255px;
 }
 
 .postForm
@@ -312,7 +312,6 @@ textarea:focus
 .profileInfo
 {
     display: list-item;
-    /*background-color: #78e08f;*/
     background-color: #fd79a8;
     width: 100%;
     padding: 10px 0px 10px 0px;
@@ -420,4 +419,163 @@ textarea:focus
 .profileInfoBottom
 {
     margin: 10px 0px 0px 7px;
+}
+
+
+
+ #messageSubmit
+{
+    height: 41px;
+    position: absolute;
+    width: 120px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #00ffbf;
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    text-shadow: darkviolet 0.5px 0.5px 0px;
+    color: darkviolet;
+    font-size: 110%;
+    outline: 0;
+}
+
+.loadedMessages
+{
+    border-radius: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: inline-block;
+    height: 65%;
+    width: 100%;
+    min-height: 300px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+#messageTextarea
+{
+    width: 83%;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #D3D3D3;
+    font-size: 12px;
+}
+
+#messageSubmit 
+{
+	height: 41px;
+    width: 120px;
+	margin: 0;
+	position: inline;
+	border:none;
+	background-color: #20AAE5;
+	color: #156588;
+	border-radius: 5px;
+	font-family: 'Bellota-BoldItalic', sans-serif;
+	text-shadow: #73B6E2 0.5px 0.5px 0px;
+}
+
+.message 
+{
+	border: 1px solid #000;
+	border-radius: 5px;
+    padding: 5px 10px;
+    clear: both;
+    position: inline-block;
+    color: #000000;
+    max-width: 350px;
+}
+
+#green
+{
+    background-color: #2ecc71;
+    color: #ffffff;
+    float: right;
+    margin-bottom: 10px;
+}
+
+#blue
+{
+    background-color: #0984e3;
+    color: #ffffff;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.userFoundMessages
+{
+    border-bottom: 1px solid #D3D3D3;
+    padding: 8px 8px 10px 8px;
+}
+
+.userFoundMessages:hover
+{
+    background-color: #D3D3D3;
+}
+
+.userFoundMessages img
+{
+    height: 55px;
+    float: left;
+}
+
+#grey
+{
+    color: #8C8C8C;
+}
+
+.resultDisplay
+{
+    padding: 5px 5px 0px 5px;
+    height: 60px;
+    border-bottom: 1px solid #D3D3D3;
+}
+
+.resultDisplay a
+{
+    float: none;
+}
+
+.resultDisplay:hover
+{
+    background-color: #ebebeb;
+    text-decoration: none;
+}
+
+.liveSearchProfilePic img
+{
+    height: 50px;
+    border-radius: 25px;
+    margin: 1px 12px 0px 2px;
+    float: left;
+}
+
+.liveSearchText
+{
+    background-color: transparent;
+    color: #ff00bf;
+}
+
+.liveSearchText p
+{
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.tab-content
+{
+    margin-top: 25px;
+}
+
+.dropdownDataWindow
+{
+    background-color: #ffffff;
+    border: 1px solid #DADADA;
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    overflow: auto;
 }
