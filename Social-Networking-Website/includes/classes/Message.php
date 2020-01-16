@@ -275,6 +275,8 @@
             $numIterations = 0; //Number of messages that have been checked
             $count = 1; //Number of messages that have been posted
 
+            $this->numOfConversations = sizeof($conversations);
+
             foreach($conversations as $username)
             {
 
@@ -293,10 +295,10 @@
                     $count++;
                 }
 
-                $isUnreadQuery = mysqli_query($this->con, "SELECT opened FROM messages
+                $isUnreadQuery = mysqli_query($this->con, "SELECT * FROM messages
                     WHERE user_to = '$userLoggedIn' AND user_from = '$username' ORDER BY id DESC");
                 $row = mysqli_fetch_array($isUnreadQuery);
-                $style = ($row['opened'] == 'no') ? "backgrond-color: #DDEDFF" : "";
+                $style = ($row['opened'] == "no") ? "background-color:#DDEDFF;" : "";
 
                 $userFoundObject = new User($this->con, $username);
                 $latestMessageDetails = $this->getLatestMessage($userLoggedIn, $username);
@@ -321,7 +323,7 @@
             {
                 $returnString .= "<input type = 'hidden' class = 'nextPageDropdownData' 
                     value = '" . ($page + 1) . "'><input type = 'hidden' class = 'noMoreDropdownData'
-                    value = 'false'";
+                    value = 'false'>";
             }
 
             else
@@ -333,9 +335,21 @@
 
             $returnString .= "<input type = 'hidden' class = 'nextPageDropdownData' 
                     value = '" . ($page + 1) . "'><input type = 'hidden' class = 'noMoreDropdownData'
-                    value = 'false'";
+                    value = 'false'>";
 
             return $returnString;
         }
+        
+        public function getUnreadNumber()
+        {
+            $userLoggedIn = $this->userObject->getUsername();
+            $query = mysqli_query($this->con, "SELECT * FROM messages WHERE viewed = 'no' AND
+                user_to = '$userLoggedIn'");
+
+            return mysqli_num_rows($query);
+        }
+
+        
     }
 ?>
+

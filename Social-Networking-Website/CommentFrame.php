@@ -2,6 +2,7 @@
     require 'config/config.php';
     include("includes/classes/User.php");
     include("includes/classes/Post.php");
+    include("includes/classes/Notification.php");
 
     if(isset($_SESSION['username']))
     {
@@ -64,6 +65,7 @@
             $row = mysqli_fetch_array($userQuery);
 
             $postedTo = $row['added_by'];
+            $userTo = $row['user_to'];
 
             if(isset($_POST['postComment' . $post_id]))
             {
@@ -72,6 +74,35 @@
                 $dateTimeNow = date("Y-m-d H:i:s");
                 $insertPost = mysqli_query($con, "INSERT INTO comments VALUES('', '$postBody', '$userLoggedIn', '$postedTo', 
                     '$dateTimeNow', 'no', '$post_id')");
+
+                if($postedTo != $userLoggedIn)
+                {
+                    $notificaiton = new Notification($con, $userLoggedIn);
+                    $notificaiton->insertNotification($post_id, $postedTo, "comment");
+                }
+
+                if($userTo != 'none' && $userTo != $userLoggedIn)
+                {
+                    $notification = new Notification($con, $userLoggedIn);
+                    $notification->insertNotification($post_id, $userTo, "profileComment");
+                }
+
+                $getCommenters = mysqli_query($con, "SELECT * FROM comments WHERE post_id = '$post_id'");
+                $notifiedUsers = array();
+
+                while($row = mysqli_fetch_array($getCommenters))
+                {
+                    if($row['posted_by'] != $postedTo && $row['posted_by'] != $userTo &&
+                        $row['posted_by'] != $userLoggedIn && !in_array($row['posted_by'], $notifiedUsers))
+                    {
+                        //Insert notification
+                        $notification = new Notification($con, $userLoggedIn);
+                        $notification->insertNotification($post_id, $row['posted_by'], "commentNonOwner");
+
+                        array_push($notifiedUsers, $row['posted_by']);
+                    }
+                }
+
                 echo "<p>Comment posted!</p>";
             }
         ?>

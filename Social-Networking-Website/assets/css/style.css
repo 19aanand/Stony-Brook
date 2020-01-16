@@ -579,3 +579,77 @@ textarea:focus
     top: 40px;
     overflow: auto;
 }
+
+.notificationBadge
+{
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #fd79a8;
+    border-radius: 10px;
+    position: absolute;
+    left: 8px;
+    top: -5px;    
+}
+
+.resultDisplayNotification
+{
+    height: auto;
+    color: #1485DB;
+    padding-bottom: 7px;
+}
+
+.resultDisplayNotification img
+{
+    height: 40px;
+    border-radius: 5px;
+    margin: 1px 12px 0px 2px;
+    float: left;
+}
+
+.timestampSmaller
+{
+    font-size: 85%;
+    margin: 0px;
+
+}
+
+.search
+{
+    margin: 8px 0px 0px 13%;
+}
+
+.search #searchTextInput
+{
+    border: thin solid #E5E5E5;
+    float: left;
+    height: 23px;
+    outline: 0;
+    width: 160px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.buttonHolder
+{
+    background-color: #F1F1F1;
+    border: thin solid #E5E5E5;
+    cursor: pointer;
+    float: left;
+    height: 23px;
+    text-align: center;
+    width: 50px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.buttonHolder img
+{
+    margin-top: 1px;
+    width: 20px;
+}

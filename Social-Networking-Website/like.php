@@ -29,6 +29,7 @@
             require 'config/config.php';
             include("includes/classes/User.php");
             include("includes/classes/Post.php");
+            include("includes/classes/Notification.php");
 
             if(isset($_SESSION['username']))
             {
@@ -68,6 +69,11 @@
                 header( 'Location: like.php?post_id=' . $post_id ); 
 
                 //Insert notification
+                if($userLiked != $userLoggedIn)
+                {
+                    $notificaiton = new Notification($con, $userLoggedIn);
+                    $notificaiton->insertNotification($post_id, $userLiked, "like");
+                }
             }
 
             //Unlike button
