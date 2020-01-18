@@ -12,7 +12,7 @@
         }
 
 
-        public function submitPost($body, $userTo)
+        public function submitPost($body, $userTo, $imageName)
         {
             $body = strip_tags($body); //Remove html tags
 
@@ -61,7 +61,7 @@
 
                 //Insert post
                 $query = mysqli_query($this->con, "INSERT INTO posts VALUES('', '$body', '$addedBy', '$userTo', '$dateAdded', 
-                    'no', 'no', '0')");
+                    'no', 'no', '0', '$imageName')");
                 
                 $returnedId = mysqli_insert_id($this->con);
 
@@ -470,6 +470,7 @@
                     $body = $row['body'];
                     $addedBy = $row['added_by'];
                     $dateTime = $row['date_added'];
+                    $imagePath = $row['image'];
 
                     //Preprae userTo so that it can be included even if not posted to a user
                     if($row['user_to'] == "none")
@@ -656,6 +657,18 @@
                             }
                         }
 
+                        if($imagePath != "")
+                        {
+                            $imageDiv = "<div class = 'postedImage'>
+                                            <img src = '" . $imagePath . "'>
+                                        </div>";
+                        }
+
+                        else
+                        {
+                            $imageDiv = "";
+                        }
+
                         $str .= "<div class = 'statusPost' onClick = 'javascript:toggle$id()'>
                             <div class = 'postProfilePic'>
                                 <img src = '$profilePic' width = '50'>
@@ -669,6 +682,7 @@
                             <div id = 'postBody'>
                                 $body
                                 <br>
+                                $imageDiv
                                 <br>
                                 <br>
                             </div>

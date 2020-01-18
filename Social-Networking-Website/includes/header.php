@@ -180,7 +180,7 @@
                 var page = $('.dropdownDataWindow').find('.nextPageDropdownData').val() || 1;
                 var pageName; //Holds name of page to sent ajax request to
                 var type = $('#dropdownDataType').val();
-                alert(type);
+                //alert(type);
 
                 if(type == 'notification')
                 {

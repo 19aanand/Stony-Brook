@@ -3,9 +3,58 @@
 
     if(isset($_POST['post']))
     {
-        $post = new Post($con, $userLoggedIn);
-        $post->submitPost($_POST['postText'], 'none');
-        header("Location: index.php");
+        $uploadOk = 1;
+        $imageName = $_FILES['fileToUpload']['name'];
+        $errorMessage = "";
+
+        if($imageName != "")
+        {
+            $targetDirectory = "assets/images/posts/";
+            $imageName = $targetDirectory . uniqid() . basename($imageName);
+            $imageFileType = pathinfo($imageName, PATHINFO_EXTENSION);
+
+            if($_FILES['fileToUpload']['size'] > 10000000)
+            {
+                $errorMessage = "Sorry, the file uploaded was too large.";
+                $uploadOk = 0;
+            }
+
+            if(strtolower($imageFileType) != "jpeg" && strtolower($imageFileType) != "png"
+                && strtolower($imageFileType) != "jpg")
+            {
+                $errorMessage = "Sorry, only jpeg, jpg, and png files can be uploaded.";
+                $uploadOk = 0;
+            }
+
+            if($uploadOk) //The integer value of 1 corresponds to true in boolean logic
+            {
+                if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $imageName))
+                {
+                    //Image uploaded sucessfully
+                }
+
+                else
+                {
+                    //Image was not uploaded successfully
+                    $uploadOk = 0;
+                }
+            }
+        
+        } //End of outermost if statement
+
+        if($uploadOk)
+        {
+            $post = new Post($con, $userLoggedIn);
+            $post->submitPost($_POST['postText'], 'none', $imageName);
+            header("Location: index.php");
+        }
+
+        else
+        {
+            echo "<div style = 'text-align:center' class = 'alert alert-danger'>
+                    $errorMessage
+                </div>";
+        }
     }
 ?>
 
@@ -47,14 +96,21 @@
         <div class = "mainColumn column">
 
         
-            <form class = "postForm" action = "index.php" method = "POST">
+            <form class = "postForm" action = "index.php" method = "POST" enctype = "multipart/form-data">
+
+                <input type = "file" name = "fileToUpload" id = "fileToUpload">
+                    
+                </input>
 
                 <textarea name = "postText" id = "postText" placeholder = "What's on your mind?">
                 </textarea>
+                
 
                 <input type = "submit" name = "post" id = "postButton" value = "Post">
-                    <hr>
                 </input>
+
+
+                <hr>
 
             </form>
 
