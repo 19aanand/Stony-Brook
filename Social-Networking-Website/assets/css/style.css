@@ -92,6 +92,7 @@ nav a:hover
     border-radius: 5px;
     box-shadow: 2px 2px 1px #d3d3d3;
     z-index: -1;
+    color: #555;
 }
 
 .userDetails
@@ -527,7 +528,7 @@ textarea:focus
 .resultDisplay
 {
     padding: 5px 5px 0px 5px;
-    height: 60px;
+    height: 75px;
     border-bottom: 1px solid #D3D3D3;
 }
 
@@ -652,4 +653,86 @@ textarea:focus
 {
     margin-top: 1px;
     width: 20px;
+}
+
+.searchResults
+{
+    background-color: #ffffff;
+    border: 1px solid #DADADA;
+    border-bottom: none;
+    border-top: none;
+    margin-top: 21px;
+}
+
+.searchResultsFooter
+{
+    padding: 5px 4px 0px 4px;
+    height: 30px;
+    border: 1px solid #DADADA;
+    border-top: none;
+    background-color: #2ecc71;
+    text-align: center;
+}
+
+.searchResultsFooter a
+{
+    color: #ff00bf;
+}
+
+.searchPage
+{
+    padding: 10px;
+    height: 100px;
+}
+
+.searchPageFriendButtons
+{
+    float: right;
+}
+
+.searchPageFriendButtons input[type = "submit"]
+{
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.resultProfilePic
+{
+    float: left;
+    margin-right: 10px;
+}
+
+#searchHr
+{
+    margin-bottom: 0px;
+}
+
+#smallProfilePic
+{
+    height: 55px;
+    margin: 1px 12px 0px 2px;    
+    float: left;
+}
+
+#settingsInput
+{
+    border: 1px solid #DADADA;
+    height: 25px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 25px;
+    font-size: 14px;
+
+}
+
+.settingsSubmit
+{
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    color: #ffffff;
 }

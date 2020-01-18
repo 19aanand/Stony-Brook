@@ -58,16 +58,35 @@
 
             </form>
 
-            <?php
-                //$post = new Post($con, $userLoggedIn);
-                //$post->loadPostsFriends();
-
-            ?>
 
             <div id = "postsArea"></div>
 
             <img id = "loading" src = "assets/images/icons/loading.gif">
 
+        </div>
+
+        <div class = "userDetails column">
+            <div class = "trends">
+
+                <h4>Popular</h4>
+
+                <?php
+                    $query = mysqli_query($con, "SELECT * FROM trends ORDER BY hits DESC LIMIT 9");
+
+                    foreach($query as $key => $row) //Declaration is identical to $row = mysqli_fetch_array($query)
+                    {
+                        $word = $row['title'];
+                        $wordDot = strlen($word) >= 14 ? "..." : "";
+                        
+                        $trimmedWord = str_split($word, 14);
+                        $trimmedWord = $trimmedWord[0];
+
+                        echo "<div style = 'padding: 1px;'>";
+                        echo ($key+1) . ") " . $trimmedWord . $wordDot;
+                        echo "<br><br></div>";
+                    }
+                ?>
+            </div>
         </div>
 
         <script>

@@ -50,7 +50,7 @@
         </div>
 
         <div class = "search">
-            <form action = "Search.php" method = "GET" name = "searchFor">
+            <form action = "Search.php" method = "GET" name = "searchForm">
                 <input type = "text" onkeyup = "getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" 
                     name = "q" placeholder = "Search for user" autocomplete = "off" id = "searchTextInput">
 
@@ -60,7 +60,7 @@
             </form>
 
             <div class = "searchResults">
-            
+
             </div>
 
             <div class = "searchResultsFooterEmpty">
@@ -135,7 +135,7 @@
             </a>
 
             <!-- Settings icon -->
-            <a href = "#">
+            <a href = "Settings.php">
                 <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
             </a>
             

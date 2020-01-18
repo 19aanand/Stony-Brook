@@ -24,17 +24,7 @@
         <link rel = "stylesheet" type = "text/css" href = "assets/css/style.css">
     </head>
 
-    <body>
-
-        <style type = "text/css">
-            *
-            {
-                font-size: 12px;
-                font-family: Arial, Helvetica, Sans-serif;
-                background-color: #ffffff;
-            }
-        </style>
-
+    <body style = "background-color: #ffffff; font-family: Arial, Helvetica, Sans-serif; font-size: 12px;">
         
 
         <script>
